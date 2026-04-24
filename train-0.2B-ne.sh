@@ -273,10 +273,11 @@ LR_DECAY_ITERS=$TRAIN_ITERS
 DATA_ARGS=(
     --data-path "$DATA_PATH"
     --data-cache-path "$DATA_CACHE_PATH"
+    --split 99,1,0
     --tokenizer-type HuggingFaceTokenizer
     --tokenizer-model "$TOKENIZER_MODEL"
     --make-vocab-size-divisible-by 128
-    --dataloader-type single
+    --dataloader-type cyclic
     --num-workers 2   # Some issues with this, lower values are safer
 )
 
